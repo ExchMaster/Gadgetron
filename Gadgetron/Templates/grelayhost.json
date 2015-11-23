@@ -41,13 +41,10 @@
       "metadata": {
         "description": "Must fall within the address space defined by 'Address Space'"
       }
-    },
-    "numberOfInstances": {
-      "type": "int",
-      "defaultValue": 2
     }
   },
   "variables": {
+    "numberOfInstances": "1",
     "dnsNameforLBIP": "[parameters('vmNamePrefix')]",
     "publicIPAddressName": "[concat(parameters('vmNamePrefix'),'PubIP')]",
     "nicNamePrefix": "[concat(parameters('vmNamePrefix'),'myVMnic')]",
@@ -124,7 +121,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "nicLoop",
-        "count": "[parameters('numberOfInstances')]"
+        "count": "[variables('numberOfInstances')]"
       },
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]",
@@ -214,7 +211,7 @@
       "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
       "copy": {
         "name": "virtualMachineLoop",
-        "count": "[parameters('numberOfInstances')]"
+        "count": "[variables('numberOfInstances')]"
       },
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -266,7 +263,7 @@
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "extensionLoopNode",
-        "count": "[parameters('numberOfInstances')]"
+        "count": "[variables('numberOfInstances')]"
       },
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('vmNamePrefix'),0)]"
