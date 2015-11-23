@@ -55,7 +55,7 @@
     "lbName": "[concat(parameters('vmNamePrefix'),'myVMLB')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "imageSKU": "15.04",
+    "imageSKU": "14.04",
     "vmSize": "Standard_D12",
     "storageAccountType": "Standard_LRS",
     "vmStorageAccountContainerName": "vhds",
@@ -298,7 +298,7 @@
     }
   ],
   "outputs": {
-    "masterip": {
+    "relayhostip": {
       "value": "[reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress]",
       "type": "string"
     }
