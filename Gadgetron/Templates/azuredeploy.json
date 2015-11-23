@@ -41,10 +41,6 @@
       "metadata": {
         "description": "Must fall within the address space defined by 'Address Space'"
       }
-    },
-    "numberOfInstances": {
-      "type": "int",
-      "defaultValue": "1"
     }
   },
   "variables": {
