@@ -15,10 +15,7 @@
       }
     },
     "storAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of premium storage account which will host the OS disk for this deployment."
-      }
+      "type": "string"
     },
     "vmNamePrefix": {
       "type": "string",

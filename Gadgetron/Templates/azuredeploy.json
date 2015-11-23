@@ -60,13 +60,13 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "adminUsername": { "value": "[parameters('adminUsername')" },
-          "adminPassword": { "value": "[parameters('adminPassword')" },
-          "storAccountName": { "value": "[parameters('storAccountName')" },
-          "vmNamePrefix": { "value": "[parameters('vmNamePrefix')" },
-          "addressPrefix": { "value": "[parameters('addressPrefix')" },
-          "subnetName": { "value": "[parameters('subnetName')" },
-          "subnetPrefix": { "value": "[parameters('subnetPrefix')" }          
+          "adminUsername": {"value": "[parameters('adminUsername')" },
+          "adminPassword": {"value": "[parameters('adminPassword')" },
+          "storAccountName": {"value": "[parameters('storAccountName')" },
+          "vmNamePrefix": {"value": "[parameters('vmNamePrefix')" },
+          "addressPrefix": {"value": "[parameters('addressPrefix')" },
+          "subnetName": {"value": "[parameters('subnetName')" },
+          "subnetPrefix": {"value": "[parameters('subnetPrefix')" }          
         }
       }
     }
