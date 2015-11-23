@@ -49,7 +49,7 @@
     "lbName": "[concat(parameters('vmNamePrefix'),'myVMLB')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "imageSKU": "14.04",
+    "imageSKU": "14.04.2-LTS",
     "vmSize": "Standard_D12",
     "storageAccountType": "Standard_LRS",
     "vmStorageAccountContainerName": "vhds",
