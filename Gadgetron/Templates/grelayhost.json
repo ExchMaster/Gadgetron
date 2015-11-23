@@ -44,7 +44,7 @@
     }
   },
   "variables": {
-    "numberOfInstances": "1",
+    "numberOfInstances": 1,
     "dnsNameforLBIP": "[parameters('vmNamePrefix')]",
     "publicIPAddressName": "[concat(parameters('vmNamePrefix'),'PubIP')]",
     "nicNamePrefix": "[concat(parameters('vmNamePrefix'),'myVMnic')]",
