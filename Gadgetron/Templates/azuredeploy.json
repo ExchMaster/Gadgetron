@@ -57,9 +57,6 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
       "dependsOn": [ ],
-      "tags": {
-        "displayName": "grelayhost"
-      },
       "properties": {
         "mode": "Incremental",
         "templateLink": {
