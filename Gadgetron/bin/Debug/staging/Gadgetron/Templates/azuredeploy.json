@@ -94,7 +94,8 @@
           "vmssName": { "value": "[parameters('vmNamePrefix')]" },
           "instanceCount": { "value": "[parameters('instanceCount')]" },
           "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
-          "subnetName1": { "value": "[parameters('subnetName')]" }          
+          "subnetName1": { "value": "[parameters('subnetName')]" },
+          "resourceLocation": {"value": "[resourceGroup().location]"}       
         }
       }
     }

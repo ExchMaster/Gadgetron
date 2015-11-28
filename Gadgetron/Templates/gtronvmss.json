@@ -175,8 +175,7 @@
       "apiVersion": "[variables('apiVersion')]",
       "dependsOn": [
         "storageLoop",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
       ],
       "sku": {
         "name": "[parameters('vmSku')]",
