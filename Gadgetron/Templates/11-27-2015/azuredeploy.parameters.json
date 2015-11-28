@@ -10,9 +10,6 @@
         },
         "storAccountName": {
             "value": "gtronsa1"
-        },
-        "vmNamePrefix": {
-            "value": "myvmjai4"
         }
     }
 }
