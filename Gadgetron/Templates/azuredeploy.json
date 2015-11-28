@@ -82,9 +82,6 @@
       "dependsOn": [
         "Microsoft.Resources/deployments/grelayhost"
       ],
-      "tags": {
-        "displayName": "gtronvmss"
-      },
       "properties": {
         "mode": "Incremental",
         "templateLink": {
