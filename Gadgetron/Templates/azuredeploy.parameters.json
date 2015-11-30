@@ -16,9 +16,6 @@
         },
         "instanceCount": {
             "value": 1
-        },
-        "vmSSName": {
-            "value": "myvmjaij"
         }
     }
 }
