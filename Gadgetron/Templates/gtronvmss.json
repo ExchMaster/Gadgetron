@@ -56,6 +56,9 @@
         "description": "Admin username on all VMs."
       }
     },
+    "gtronLBEndpoint": {
+      "type": "string"
+    },
     "adminPassword": {
       "type": "securestring",
       "metadata": {
@@ -141,7 +144,7 @@
           {
             "name": "LoadBalancerFrontEnd",
             "properties": {
-              //"privateIPAddress": "10.0.247.254",
+              "privateIPAddress": "[parameters('gtronLBEndpoint')]",
               "privateIPAllocationMethod": "Static",
               "subnet": {
                 "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'), '/subnets/', variables('subnetName'))]"
