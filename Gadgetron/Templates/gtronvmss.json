@@ -153,14 +153,7 @@
           {
             "name": "[variables('bePoolName')]"
           }
-        ],
-        "loadBalancingRules": [
-          {
-            "properties": {
-
-            }
-          }
-        ],
+        ],       
         "inboundNatPools": [
           {
             "name": "[variables('natPoolName')]",
