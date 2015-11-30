@@ -276,6 +276,37 @@
                 }
               }
             ]
+          },
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "gtrondockerext",
+                "properties": {
+                  "publisher": "Microsoft.Azure.Extensions",
+                  "type": "DockerExtension",
+                  "typeHandlerVersion": "1.0",
+                  "autoUpgradeMinorVersion": true,
+                  "settings": {
+                    "docker": {
+                    "port": ""
+          },
+          "compose": {
+            "gt01": {
+              "image": "hansenms/gadgetron_no_cuda",
+              "ports": [
+                "9002:9002",
+                "8090:8090"
+              ],
+              "environment": [
+                "[concat('GADGETRON_RELAY_HOST=',parameters('masterIP'))]"
+              ],
+              "restart": "always"
+            }
+          }
+        }
+                }
+              }
+            ]
           }
         }
       }

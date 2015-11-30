@@ -9,13 +9,16 @@
             "value": "~Bl@ckberry*21"
         },
         "storAccountName": {
-            "value": "gtronsah"
+            "value": "gtronsaj"
         },
         "vmNamePrefix": {
-            "value": "myvmjaih"
+            "value": "myvmjaij"
         },
         "instanceCount": {
-            "value": 1
+            "value": 3
+        },
+        "vmSSName": {
+            "value": "myvmjaij"
         }
     }
 }

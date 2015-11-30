@@ -37,6 +37,7 @@
     <Content Include="Templates\azuredeploy.parameters.json" />
     <None Include="Templates\grelayhost.json" />
     <None Include="Templates\gtronvmss.json" />
+    <None Include="Templates\vmss-scale.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tools\AzCopy.exe" />
