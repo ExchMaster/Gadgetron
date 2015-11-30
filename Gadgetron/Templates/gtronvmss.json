@@ -32,7 +32,7 @@
       }
     },
     //Replace with name from primary template
-    "vmssName": {
+    "vmNamePrefix": {
       "type": "string",
       "metadata": {
         "description": "String used as a base for naming resources (9 characters or less). A hash is prepended to this string for some resources, and resource-specific information is appended."
@@ -70,7 +70,7 @@
     "apiVersion": "2015-06-15",
     "storageAccountType": "Standard_LRS",
     "saCount": 5,
-    "namingInfix": "[toLower(parameters('vmssName'))]",
+    "namingInfix": "[toLower(parameters('vmNamePrefix'))]",
     "newStorageAccountSuffix": "[concat(variables('namingInfix'), 'sa')]",
     "uniqueStringArray": [
       "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
@@ -83,7 +83,7 @@
     "osDiskName": "[concat(variables('namingInfix'), 'osdisk')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetPrefix": "10.0.0.0/24",
-    "virtualNetworkName": "[concat(parameters('vmssName'), 'myVMVnet')]",
+    "virtualNetworkName": "[concat(parameters('vmNamePrefix'), 'myVMVnet')]",
     "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
     "subnetName": "[parameters('subnetName1')]",
     "loadBalancerName": "[concat(variables('namingInfix'), 'lbvmss')]",
