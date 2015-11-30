@@ -98,7 +98,7 @@
         "parameters": {
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
-          "vmssName": { "value": "[parameters('vmNamePrefix')]" },
+          "vmNamePrefix": { "value": "[parameters('vmNamePrefix')]" },
           "instanceCount": { "value": "[parameters('instanceCount')]" },
           "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
           "subnetName1": { "value": "[parameters('subnetName')]" },
