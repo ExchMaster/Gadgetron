@@ -9,10 +9,13 @@
             "value": "~Bl@ckberry*21"
         },
         "storAccountName": {
-            "value": "gtronsal"
+            "value": "gtronsac"
         },
         "vmNamePrefix": {
-            "value": "myvmjail"
+            "value": "myvmjaic"
+        },
+        "instanceCount": {
+            "value": 1
         }
     }
 }
