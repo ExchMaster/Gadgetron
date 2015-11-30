@@ -141,8 +141,9 @@
           {
             "name": "LoadBalancerFrontEnd",
             "properties": {
-              "publicIPAddress": {
-                "id": "[variables('publicIPAddressID')]"
+              "privateIPAllocationMethod": "Static",
+              "subnet": {
+                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'), '/subnets/', variables('subnetName'))]"
               }
             }
           }
@@ -150,6 +151,13 @@
         "backendAddressPools": [
           {
             "name": "[variables('bePoolName')]"
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "properties": {
+
+            }
           }
         ],
         "inboundNatPools": [
