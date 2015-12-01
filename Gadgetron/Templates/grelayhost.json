@@ -279,7 +279,9 @@
               "image": "hansenms/gadgetron_no_cuda",
               "ports": [
                 "9002:9002",
-                "8090:8090"
+                "8090:8090",
+                "9080:9080",
+                "8002:8002"
               ],
               "environment": [
                 "[concat('GADGETRON_RELAY_HOST=',reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress)]"

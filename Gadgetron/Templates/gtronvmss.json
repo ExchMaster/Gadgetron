@@ -175,7 +175,7 @@
         ],
         "loadBalancingRules": [
           {
-            "name": "LBRule",
+            "name": "GTron9002",
             "properties": {
               "frontendIPConfiguration": {
                 "id": "[variables('frontEndIPConfigID')]"
@@ -186,6 +186,25 @@
               "protocol": "tcp",
               "frontendPort": 9002,
               "backendPort": 9002,
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 4,
+              "probe": {
+                "id": "[variables('lbProbeID')]"
+              }
+            }
+          },
+          {
+            "name": "GWeb8090",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[variables('frontEndIPConfigID')]"
+              },
+              "backendAddressPool": {
+                "id": "[variables('backEndIPConfigID')]"
+              },
+              "protocol": "tcp",
+              "frontendPort": 8090,
+              "backendPort": 8090,
               "enableFloatingIP": false,
               "idleTimeoutInMinutes": 4,
               "probe": {
@@ -295,7 +314,9 @@
               "image": "hansenms/gadgetron_no_cuda",
               "ports": [
                 "9002:9002",
-                "8090:8090"
+                "8090:8090",
+                "9080:9080",
+                "8002:8002"
               ],
               "environment": [
                 "[concat('GADGETRON_RELAY_HOST=',parameters('masterIP'))]"
