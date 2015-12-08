@@ -9,10 +9,10 @@
             "value": "~Bl@ckberry*21"
         },
         "storAccountName": {
-            "value": "gtronc"
+            "value": "gtrond"
         },
         "vmNamePrefix": {
-            "value": "gtronc"
+            "value": "gtrond"
         },
         "instanceCount": {
             "value": 2

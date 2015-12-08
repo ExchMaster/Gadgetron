@@ -257,8 +257,8 @@
                 }
               }
             ]
-          }
-          /*"extensionProfile": {
+          },
+          "extensionProfile": {
             "extensions": [
               {
                 "name": "gtrondockerext",
@@ -291,7 +291,7 @@
               }
             ]
           }
-        */}
+        }
       }
     }
   ]

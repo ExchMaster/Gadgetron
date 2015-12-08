@@ -240,8 +240,8 @@
           ]
         }
       }
-    }
-    /*{
+    },
+    {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(parameters('vmNamePrefix'), copyIndex(), '/DockerExtension')]",
       "apiVersion": "2015-06-15",
@@ -281,7 +281,7 @@
         }
       }
     }
-  */],
+  ],
   "outputs": {
     "relayhostip": {
       "value": "[reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress]",
