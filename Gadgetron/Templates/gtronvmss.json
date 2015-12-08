@@ -71,7 +71,7 @@
     "storageAccountType": "Standard_LRS",
     "saCount": 5,
     "namingInfix": "[toLower(parameters('vmNamePrefix'))]",
-    "newStorageAccountSuffix": "sa]",
+    "newStorageAccountSuffix": "sa",
     "uniqueStringArray": [
       "[concat(uniqueString(concat(subscription().subscriptionid, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
       "[concat(uniqueString(concat(subscription().subscriptionid, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
