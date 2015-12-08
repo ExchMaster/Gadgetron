@@ -31,7 +31,6 @@
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values are: 15.04, 14.04.2-LTS."
       }
     },
-    //Replace with name from primary template
     "vmNamePrefix": {
       "type": "string",
       "metadata": {
@@ -39,7 +38,6 @@
       },
       "maxLength": 9
     },
-    //Replace with count from primary template
     "instanceCount": {
       "type": "int",
       "defaultValue": 3,
@@ -90,9 +88,6 @@
     "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
     "natPoolName": "[concat(variables('namingInfix'), 'natpool')]",
     "bePoolName": "[concat(variables('namingInfix'), 'bepool')]",
-    "natStartPort": 50000,
-    "natEndPort": 50099,
-    "natBackendPort": 22,
     "nicName": "[concat(variables('namingInfix'), 'nic')]",
     "ipConfigName": "[concat(variables('namingInfix'), 'ipconfig')]",
     "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
@@ -126,7 +121,7 @@
       "location": "[parameters('resourceLocation')]",
       "apiVersion": "[variables('apiVersion')]",
       "properties": {
-        "publicIPAllocationMethod": "Dynamic",
+        "publicIPAllocationMethod": "Static",
         "dnsSettings": {
           "domainNameLabel": "[concat(variables('namingInfix'),'ssh')]"
         }
@@ -158,7 +153,7 @@
         ],
         "loadBalancingRules": [
           {
-            "name": "GTron9002",
+            "name": "SSH",
             "properties": {
               "frontendIPConfiguration": {
                 "id": "[variables('frontEndIPConfigID')]"

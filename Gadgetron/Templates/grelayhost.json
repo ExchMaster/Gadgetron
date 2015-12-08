@@ -176,25 +176,13 @@
         ],
         "inboundNatRules": [
           {
-            "name": "RDP-VM0",
+            "name": "SSH",
             "properties": {
               "frontendIPConfiguration": {
                 "id": "[variables('frontEndIPConfigID')]"
               },
               "protocol": "tcp",
               "frontendPort": 22,
-              "backendPort": 22,
-              "enableFloatingIP": false
-            }
-          },
-          {
-            "name": "RDP-VM1",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID')]"
-              },
-              "protocol": "tcp",
-              "frontendPort": 50002,
               "backendPort": 22,
               "enableFloatingIP": false
             }
