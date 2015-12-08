@@ -14,7 +14,7 @@
     },
     "vmSku": {
       "type": "string",
-      "defaultValue": "Standard_A3",
+      "defaultValue": "Standard_A2",
       "metadata": {
         "description": "Size of VMs in the VM Scale Set."
       }
