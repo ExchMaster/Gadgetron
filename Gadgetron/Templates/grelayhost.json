@@ -176,7 +176,7 @@
         ],
         "inboundNatRules": [
           {
-            "name": "SSH",
+            "name": "SSH0",
             "properties": {
               "frontendIPConfiguration": {
                 "id": "[variables('frontEndIPConfigID')]"
