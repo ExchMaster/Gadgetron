@@ -72,9 +72,9 @@
     "namingInfix": "[concat(toLower(parameters('vmNamePrefix')),'ssh')]",
     "newStorageAccountSuffix": "sa",
     "uniqueStringArray": [
-      "[concat(uniqueString(concat(subscription().subscriptionid, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
-      "[concat(uniqueString(concat(subscription().subscriptionid, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
-      "[concat(uniqueString(concat(subscription().subscriptionid, deployment().name, variables('newStorageAccountSuffix'), '2')))]"
+      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
+      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
+      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '2')))]"
     ],
     "vhdContainerName": "[concat(variables('namingInfix'), 'vhd')]",
     "osDiskName": "[concat(variables('namingInfix'), 'osdisk')]",
