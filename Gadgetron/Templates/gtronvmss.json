@@ -219,7 +219,7 @@
             "properties": {
               "protocol": "http",
               "port": 9080,
-              "path": "/info/port",
+              "requestpath": "/info/port",
               "intervalInSeconds": 5,
               "numberOfProbes": 2
             }
@@ -296,8 +296,8 @@
                 }
               }
             ]
-          },
-          "extensionProfile": {
+          }
+          /*"extensionProfile": {
             "extensions": [
               {
                 "name": "gtrondockerext",
@@ -330,7 +330,7 @@
               }
             ]
           }
-        }
+        */}
       }
     }
   ]

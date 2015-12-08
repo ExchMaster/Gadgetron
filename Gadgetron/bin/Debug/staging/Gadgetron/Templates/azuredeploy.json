@@ -57,7 +57,8 @@
   "variables": {
     "basesharinguri": "https://raw.githubusercontent.com/ExchMaster/gadgetron/master/Gadgetron/Templates/",
     "masternodetemplateuri": "[concat(variables('basesharinguri'),'grelayhost.json')]",
-    "gtronvmsstemplateuri": "[concat(variables('basesharinguri'),'gtronvmss.json')]"
+    "gtronvmsstemplateuri": "[concat(variables('basesharinguri'),'gtronvmss.json')]",
+    "gtronsshvmsstemplateuri": "[concat(variables('basesharinguri'),'gtronsshvmss.json')]"
   },
   "resources": [
     {
@@ -100,6 +101,30 @@
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "gtronLBEndpoint": { "value": "[parameters('gtronLBEndpoint')]" },
           "instanceCount": { "value": "[parameters('instanceCount')]" },
+          "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
+          "resourceLocation": { "value": "[resourceGroup().location]" },
+          "subnetName1": { "value": "[parameters('subnetName')]" },
+          "vmNamePrefix": { "value": "[parameters('vmNamePrefix')]" }
+        }
+      }
+    },
+    {
+      "name": "gtronsshvmss",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/grelayhost"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('gtronsshvmsstemplateuri')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "adminPassword": { "value": "[parameters('adminPassword')]" },
+          "adminUsername": { "value": "[parameters('adminUsername')]" },
+          "gtronLBEndpoint": { "value": "[parameters('gtronLBEndpoint')]" },
           "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
           "resourceLocation": { "value": "[resourceGroup().location]" },
           "subnetName1": { "value": "[parameters('subnetName')]" },
