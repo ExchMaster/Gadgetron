@@ -70,7 +70,7 @@
   "variables": {
     "apiVersion": "2015-06-15",
     "storageAccountType": "Standard_LRS",
-    "saCount": 5,
+    "saCount": 3,
     "namingInfix": "[concat(toLower(parameters('vmNamePrefix')),'ssh')]",
     "newStorageAccountSuffix": "[concat(variables('namingInfix'), 'sa')]",
     "uniqueStringArray": [
