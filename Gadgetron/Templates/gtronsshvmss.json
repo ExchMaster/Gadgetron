@@ -42,7 +42,7 @@
     //Replace with count from primary template
     "instanceCount": {
       "type": "int",
-      "defaultValue": "3",
+      "defaultValue": 3,
       "metadata": {
         "description": "Number of VM instances (100 or less)."
       },
