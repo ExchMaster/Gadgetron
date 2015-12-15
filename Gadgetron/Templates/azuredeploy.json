@@ -82,7 +82,7 @@
           "subnetPrefix": { "value": "[parameters('subnetPrefix')]" }
         }
       }
-    },
+    }/*,
     {
       "name": "gtronvmss",
       "type": "Microsoft.Resources/deployments",
@@ -131,7 +131,7 @@
           "vmNamePrefix": { "value": "[parameters('vmNamePrefix')]" }
         }
       }
-    }
+    }*/
   ],
   "outputs": {
     "relayHostIPAddress": {

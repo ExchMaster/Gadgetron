@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "value": "adm-jingram"
+            "value": "sshuser"
         },
         "adminPassword": {
-            "value": "~Bl@ckberry*21"
+            "value": "P@ssword*321"
         },
         "storAccountName": {
             "value": "gtrone"
