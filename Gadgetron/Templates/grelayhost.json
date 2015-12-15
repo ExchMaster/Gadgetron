@@ -227,19 +227,7 @@
                 }
               ]
             }
-          ]/*,
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              
-              "publicKeys": [
-                {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "publickeydata"
-                }
-              ]
-            }*/
-          }
+          ]
         },
         "storageProfile": {
           "imageReference": {
