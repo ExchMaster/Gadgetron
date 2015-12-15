@@ -50,7 +50,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "imageSKU": "14.04.2-LTS",
-    "vmSize": "Standard_D12",
+    "vmSize": "Standard_D14_V2",
     "storageAccountType": "Standard_LRS",
     "vmStorageAccountContainerName": "vhds",
     "availabilitySetName": "[concat(parameters('vmNamePrefix'),'AvSet')]",
@@ -59,6 +59,7 @@
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
     "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
     "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('lbName'))]",
+    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
     "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontend')]"
   },
   "resources": [
@@ -214,7 +215,25 @@
         "osProfile": {
           "computerName": "[concat(parameters('vmNamePrefix'), copyIndex())]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          //"adminPassword": "[parameters('adminPassword')]"
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": "true",
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "[variables('sshKeyPath')]",
+                  "keyData": {
+                    "reference": {
+                      "keyVault": {
+                        "id": "[concat('/subscriptions/',subscription().subscriptionID,'/resourceGroups/AzKeyVaultGtron/providers/Microsoft.KeyVault/vaults/gtron')]"
+                      },
+                      "secretName":  "gtronassh"
+                    }
+                    }
+                }
+              ]
+            }
+          }
         },
         "storageProfile": {
           "imageReference": {
