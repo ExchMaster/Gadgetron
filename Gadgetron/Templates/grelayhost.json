@@ -223,7 +223,7 @@
               },
               "vaultCertificates": [
                 {
-                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronassh"
+                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronassh/ba22bc5cb2134d018ee4d517881b95c0"
                 }
               ]
             }
