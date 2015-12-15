@@ -215,24 +215,31 @@
         "osProfile": {
           "computerName": "[concat(parameters('vmNamePrefix'), copyIndex())]",
           "adminUsername": "[parameters('adminUsername')]",
-          //"adminPassword": "[parameters('adminPassword')]"
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
+          "adminPassword": "[parameters('adminPassword')]",
+          "secrets": [
+            {
+              "sourceVault": {
+                "id": "[concat('/subscriptions/',subscription().subscriptionID,'/resourceGroups/AzKeyVaultGtron/providers/Microsoft.KeyVault/vaults/gtron')]"
+              },
+              "vaultCertificates": [
                 {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": {
-                    "reference": {
-                      "keyVault": {
-                        "id": "[concat('/subscriptions/',subscription().subscriptionID,'/resourceGroups/AzKeyVaultGtron/providers/Microsoft.KeyVault/vaults/gtron')]"
-                      },
-                      "secretName":  "gtronassh"
-                    }
-                    }
+                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronassh",
+                  "path": "[variables('sshKeyPath')]"
                 }
               ]
             }
+          ],
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": "true"/*,
+            "ssh": {
+              
+              "publicKeys": [
+                {
+                  "path": "[variables('sshKeyPath')]",
+                  "keyData": "publickeydata"
+                }
+              ]
+            }*/
           }
         },
         "storageProfile": {
