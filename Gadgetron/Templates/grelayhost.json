@@ -223,14 +223,13 @@
               },
               "vaultCertificates": [
                 {
-                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronassh",
-                  "path": "[variables('sshKeyPath')]"
+                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronassh"
                 }
               ]
             }
-          ],
+          ]/*,
           "linuxConfiguration": {
-            "disablePasswordAuthentication": "true"/*,
+            "disablePasswordAuthentication": "true",
             "ssh": {
               
               "publicKeys": [
