@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "value": "sshuser"
+            "value": "gadgetron"
         },
         "adminPassword": {
             "value": "P@ssword*321"
         },
         "storAccountName": {
-            "value": "gtrond"
+            "value": "gtrona"
         },
         "vmNamePrefix": {
-            "value": "gtrond"
+            "value": "gtrona"
         },
         "instanceCount": {
-            "value": 2
+            "value": 1
         }
     }
 }
