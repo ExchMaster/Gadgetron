@@ -26,7 +26,7 @@
       }
     },
     "sshKeyValue1": {
-      "type": "securestring",
+      "type": "string",
       "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
       "metadata": {
         "description": "SSH Key Value #1 for use when logging in with the user defined in the adminUsername parameter"
@@ -255,7 +255,7 @@
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue1')]"
-                }/*,
+                },
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue2')]"
@@ -263,7 +263,7 @@
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue3')]"
-                }*/
+                }
               ]
             }
           },
