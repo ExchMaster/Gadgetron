@@ -255,7 +255,7 @@
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue1')"
-                },
+                }/*,
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue2')"
@@ -263,7 +263,7 @@
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
                   "keyData": "[parameters('sshKeyValue3')]"
-                }
+                }*/
               ]
             }
           },
