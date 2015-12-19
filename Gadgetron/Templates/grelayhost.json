@@ -14,12 +14,44 @@
         "description": "Admin password"
       }
     },
+    "disablePasswordAuth": {
+      "type": "string",
+      "defaultValue": "False",
+      "allowedValues": [
+        "True",
+        "False"
+      ],
+      "metadata": {
+        "description": "If the value is set to 'true', then the user may log in with both the password specified AND the SSH Public Keys too.  If the value is set to 'false', then the user may login with the SSH Keys specified only."
+      }
+    },
+    "sshKeyValue1": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #1 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
+    "sshKeyValue2": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #2 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
+    "sshKeyValue3": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #3 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
     "storAccountName": {
       "type": "string"
     },
     "vmNamePrefix": {
       "type": "string",
-      "defaultValue": "myVM",
+      "defaultValue": "gtrona",
       "metadata": {
         "description": "Prefix for all VM's created as part of this deployment.  myVM1, myVM2"
       }
@@ -36,17 +68,17 @@
       "type": "string",
       "defaultValue": "10.0.247.0/24",
       "metadata": {
-        "description": "Must fall within the address space defined by 'Address Space'"
+        "description": "Must fall within the address space defined by 'Address Space"
       }
     }
   },
   "variables": {
     "numberOfInstances": 1,
     "dnsNameforLBIP": "[parameters('vmNamePrefix')]",
-    "publicIPAddressName": "[concat(parameters('vmNamePrefix'),'PubIP')]",
-    "nicNamePrefix": "[concat(parameters('vmNamePrefix'),'myVMnic')]",
-    "vnetName": "[concat(parameters('vmNamePrefix'),'myVMVnet')]",
-    "lbName": "[concat(parameters('vmNamePrefix'),'myVMLB')]",
+    "publicIPAddressName": "[concat(parameters('vmNamePrefix'),'grhPubIP')]",
+    "nicNamePrefix": "[concat(parameters('vmNamePrefix'),'grhnic')]",
+    "vnetName": "[concat(parameters('vmNamePrefix'),'Vnet')]",
+    "lbName": "[concat(parameters('vmNamePrefix'),'LB')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "imageSKU": "14.04.2-LTS",
@@ -217,16 +249,20 @@
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
           "linuxConfiguration": {
-            "disablePasswordAuthentication": "false",
+            "disablePasswordAuthentication": "[parameters('disablePasswordAuth')]",
             "ssh": {
               "publicKeys": [
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/"
+                  "keyData": "[parameters('sshKeyValue1')"
                 },
                 {
                   "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPyH130lBuV7ZaHNMI+DhfISOYHvOt3Zs0U119GPnNJXJfRE6XYz4V9fn9nXfVkaHxO42X6Dcgk8mJ3YMFkd3Pz771W7LiHfDOSW8E2vMicTlEkWgqHluDNTwK6EZ6f5LVrZrC8dL3nBiAuQbRRG56Lqg0e1yFS6LxZbuijFw3LnIeCArQ/3NKH2spBtvt2dvRp1Jp46y0KKeNcR8c6NfNSf3PZqxPzRiqiDeCq18aILmGZrolbkcQ/xla1w6J7CviQjNLhR86+ynWXjxTi9fTDartCJx71z/+Nf7OnztOX2esrEZUsf8rbp1TtzRDVPxGKbxZ9I5p6K4z4zBs9sUj"
+                  "keyData": "[parameters('sshKeyValue2')"
+                },
+                {
+                  "path": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
+                  "keyData": "[parameters('sshKeyValue3')]"
                 }
               ]
             }

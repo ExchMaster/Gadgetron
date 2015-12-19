@@ -4,6 +4,7 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "gadgetron",
       "metadata": {
         "description": "Admin username"
       }
@@ -14,17 +15,53 @@
         "description": "Admin password"
       }
     },
+    "disablePasswordAuth": {
+      "type": "string",
+      "defaultValue": "False",
+      "allowedValues": [
+        "True",
+        "False"
+      ],
+      "metadata": {
+        "description": "If the value is set to 'true', then the user may log in with both the password specified AND the SSH Public Keys too.  If the value is set to 'false', then the user may login with the SSH Keys specified only."
+      }
+    },
+    "sshKeyValue1": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #1 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
+    "sshKeyValue2": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #2 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
+    "sshKeyValue3": {
+      "type": "string",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/ imported-openssh-key",
+      "metadata": {
+        "description": "SSH Key Value #3 for use when logging in with the user defined in the adminUsername parameter"
+      }
+    },
+    "gtronLBEndpoint": {
+      "type": "string",
+      "defaultValue": "10.0.247.254",
+      "metadata": {
+        "description": "Must fall within the subnet range defined by 'subnetPrefix"
+      }
+    },
+    "instanceCount": {
+      "defaultValue": 2,
+      "type": "int"
+    },
     "storAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of premium storage account which will host the OS disk for this deployment."
-      }
-    },
-    "vmNamePrefix": {
-      "type": "string",
-      "defaultValue": "myVM",
-      "metadata": {
-        "description": "Prefix for all VM's created as part of this deployment.  myVM1, myVM2"
+        "description": "Name of the storage account which will host the OS disk for the Gadgetron relay host."
       }
     },
     "addressPrefix": {
@@ -35,22 +72,18 @@
       "type": "string",
       "defaultValue": "Subnet-1"
     },
-    "instanceCount": {
-      "type": "int",
-      "defaultValue": 3
-    },
     "subnetPrefix": {
       "type": "string",
       "defaultValue": "10.0.247.0/24",
       "metadata": {
-        "description": "Must fall within the address space defined by 'Address Space'"
+        "description": "Must fall within the address space defined by 'Address Space"
       }
     },
-    "gtronLBEndpoint": {
+    "vmNamePrefix": {
       "type": "string",
-      "defaultValue": "10.0.247.254",
+      "defaultValue": "gtrona",
       "metadata": {
-        "description": "Must fall within the subnet range defined by 'subnetPrefix'"
+        "description": "Prefix for all VM's created as part of this deployment.  gtronxgrh0, gtronx0, gtronx1, gtronx2"
       }
     }
   },
@@ -75,6 +108,10 @@
         "parameters": {
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
+          "disablePasswordAuth": { "value": "[parameters('disablePasswordAuth')]" },
+          "sshKeyValue1": { "value": "[parameters('sshKeyValue1')]" },
+          "sshKeyValue2": { "value": "[parameters('sshKeyValue2')]" },
+          "sshKeyValue3": { "value": "[parameters('sshKeyValue3')]" },
           "storAccountName": { "value": "[parameters('storAccountName')]" },
           "vmNamePrefix": { "value": "[parameters('vmNamePrefix')]" },
           "addressPrefix": { "value": "[parameters('addressPrefix')]" },
