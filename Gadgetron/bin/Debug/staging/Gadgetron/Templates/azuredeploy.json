@@ -35,14 +35,14 @@
     },
     "sshKeyValue2": {
       "type": "string",
-      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPyH130lBuV7ZaHNMI+DhfISOYHvOt3Zs0U119GPnNJXJfRE6XYz4V9fn9nXfVkaHxO42X6Dcgk8mJ3YMFkd3Pz771W7LiHfDOSW8E2vMicTlEkWgqHluDNTwK6EZ6f5LVrZrC8dL3nBiAuQbRRG56Lqg0e1yFS6LxZbuijFw3LnIeCArQ/3NKH2spBtvt2dvRp1Jp46y0KKeNcR8c6NfNSf3PZqxPzRiqiDeCq18aILmGZrolbkcQ/xla1w6J7CviQjNLhR86+ynWXjxTi9fTDartCJx71z/+Nf7OnztOX2esrEZUsf8rbp1TtzRDVPxGKbxZ9I5p6K4z4zBs9sUj",
       "metadata": {
         "description": "SSH Key Value #2 for use when logging in with the user defined in the adminUsername parameter"
       }
     },
     "sshKeyValue3": {
       "type": "string",
-      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDh4L/ZjJL/Grm1PMAh7HmjEmP2zcu1gc33ZQmuR2sacIiAb2FlVbS+wp/1icmytDwsoNLn/tuOdm9i9rK7oe60m2vYPSb8eDNzpChv11u+HUKV7nTjFFrr9wXtkDjbJsh2s4Q5ZpEMQ4GjvE/W9HY1eAhnSagWADjb3oifEvp0ky6b45aBTWDcabPKslaTKv+qYU+DlegpNzBItGQNzJTx37+0P5YnOO7ZiWhCu1X5DRfGp/q7Udmj3cVrK9wmuXPT/+yPwviTMDRpwaX0V0jx3HRf8TCMbp856RqWtgQrCiztKknJyVbRENCRK7eaPhW1TRVJOdNCHljNW7Qb94+/",
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAnnHnr6mbHMbVgRvutIIHzyGGKLFbmVNEH8b2yPH2D8Uoz8NTWrgPZgBxck15WM10qCOOJOOvFUr3A4Q0WTstfB5SvMBRfE1FZ3QYAqaEhm9eNcd0Nabsx3Z9p3sl1pMSEFZQ5kz2azYPKLvJauZb2DK2kCayoK1IGlkBSCwaAhXzYlpA+RitsFxFNXcUr04tLxxSGhyojjpSqUVjC3gQXlYWqV8aeSl+YVK/y925bcTxM++y87X2UZkZj84IhBv33aEXqilozxKZjPYAIh7xIz88e9rEVxW5N16vXvtEXkRn/QbvQgpSgOY/pwchT8uiUkXowcCo4VtdcePDm9tk0Q==",
       "metadata": {
         "description": "SSH Key Value #3 for use when logging in with the user defined in the adminUsername parameter"
       }
