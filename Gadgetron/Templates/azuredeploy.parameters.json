@@ -9,10 +9,10 @@
             "value": "P@ssword*321"
         },
         "storAccountName": {
-            "value": "gtronc"
+            "value": "gtrond"
         },
         "vmNamePrefix": {
-            "value": "gtronc"
+            "value": "gtrond"
         },
         "instanceCount": {
             "value": 1
