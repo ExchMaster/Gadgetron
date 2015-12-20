@@ -47,11 +47,11 @@
         "description": "SSH Key Value #3 for use when logging in with the user defined in the adminUsername parameter"
       }
     },
-    "gtronLBEndpoint": {
+    "vmNamePrefix": {
       "type": "string",
-      "defaultValue": "10.0.247.254",
+      "defaultValue": "gtrona",
       "metadata": {
-        "description": "Must fall within the subnet range defined by 'subnetPrefix"
+        "description": "Prefix for all VM's created as part of this deployment.  gtronxgrh0, gtronx0, gtronx1, gtronx2"
       }
     },
     "instanceCount": {
@@ -79,11 +79,11 @@
         "description": "Must fall within the address space defined by 'Address Space"
       }
     },
-    "vmNamePrefix": {
+    "gtronLBEndpoint": {
       "type": "string",
-      "defaultValue": "gtrona",
+      "defaultValue": "10.0.247.254",
       "metadata": {
-        "description": "Prefix for all VM's created as part of this deployment.  gtronxgrh0, gtronx0, gtronx1, gtronx2"
+        "description": "Must fall within the subnet range defined by 'subnetPrefix"
       }
     }
   },

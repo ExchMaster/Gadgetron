@@ -304,7 +304,7 @@
           ]
         }
       }
-    }/*,
+    },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(parameters('vmNamePrefix'), copyIndex(), '/DockerExtension')]",
@@ -324,7 +324,10 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "docker": {
-            "port": ""
+            "port": "",
+            "options": [
+              "--registry-mirror=http://localhost:5000"
+            ]
           },
           "compose": {
             "gt01": {
@@ -339,12 +342,29 @@
               "environment": [
                 "[concat('GADGETRON_RELAY_HOST=',reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress)]"
               ],
-              "restart": "always"
+              "restart": "always",
+              "links": [
+                "reg01"
+              ]
+            },
+            "reg01": {
+              "image": "registry:2",
+              "restart": "always",
+              "ports": [
+                "5000:5000"
+              ],
+              "volumes": [
+                "/mnt/registry:/var/lib/registry-cache"
+              ],
+              "proxy": [
+                "remoteurl: https://registry-1.docker.io"
+              ]
+             
             }
           }
         }
       }
-    }*/
+    }
   ],
   "outputs": {
     "relayhostip": {
