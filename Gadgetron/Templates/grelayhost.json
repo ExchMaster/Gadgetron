@@ -326,7 +326,7 @@
           "docker": {
             "port": "",
             "options": [
-              "--registry-mirror=http://localhost:5000"
+              "--registry-mirror=http://10.0.247.4:5000"
             ]
           },
           "compose": {
