@@ -337,14 +337,14 @@
             },
             "reg01": {
               "image": "registry:2",
-              //"command": "/var/lib/registry/config.yml",
+              "environment": "REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io",
               "restart": "always",
               "ports": [
                 "5000:5000"
               ],
               "volumes": [
                 "/mnt:/var/lib/registry"
-              ]            
+              ]
             }
           }
         }

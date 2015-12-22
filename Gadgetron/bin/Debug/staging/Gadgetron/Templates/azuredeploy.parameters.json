@@ -8,12 +8,6 @@
         "adminPassword": {
             "value": "P@ssword*321"
         },
-        "storAccountName": {
-            "value": "gtrona"
-        },
-        "vmNamePrefix": {
-            "value": "gtrona"
-        },
         "instanceCount": {
             "value": 1
         }
