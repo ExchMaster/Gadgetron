@@ -100,9 +100,7 @@
           "disablePasswordAuth": { "value": "[parameters('disablePasswordAuth')]" },
           "sshKeyValue1": { "value": "[parameters('sshKeyValue1')]" },
           "sshKeyValue2": { "value": "[parameters('sshKeyValue2')]" },
-          "sshKeyValue3": { "value": "[parameters('sshKeyValue3')]" },
-          "storAccountName": { "value": "[variables('storAccountName')]" },
-          "vmNamePrefix": { "value": "[variables('vmNamePrefix')]" },
+          "sshKeyValue3": { "value": "[parameters('sshKeyValue3')]" },          
           "addressPrefix": { "value": "[parameters('addressPrefix')]" },
           "subnetName": { "value": "[parameters('subnetName')]" },
           "subnetPrefix": { "value": "[parameters('subnetPrefix')]" }
