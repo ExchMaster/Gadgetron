@@ -324,10 +324,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "docker": {
-            "port": "",
-            "options": [
-              ""
-            ]
+            "port": ""            
           },
           "compose": {
             "gt01": {
