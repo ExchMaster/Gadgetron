@@ -317,8 +317,9 @@
         "settings": {
           "docker": {
             "port": "",
-            "options": "--registry-mirror=http://10.0.247.4:5000"
-
+            "options": [
+              "--registry-mirror=http://10.0.247.4:5000"
+            ]
           },
           "compose": {
             "gt01": {
