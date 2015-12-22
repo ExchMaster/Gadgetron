@@ -263,8 +263,11 @@
                   "autoUpgradeMinorVersion": true,
                   "settings": {
                     "docker": {
-                    "port": ""
-          },
+                      "port": "",
+                      "options": [
+                        "--registry-mirror=http://10.0.247.4:5000"
+                      ]
+                    },
           "compose": {
             "gt01": {
               "image": "hansenms/gadgetron_no_cuda",
