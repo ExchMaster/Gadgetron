@@ -316,7 +316,9 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "docker": {
-            "port": ""            
+            "port": "",
+            "options": "--registry-mirror=http://10.0.247.4:5000"
+
           },
           "compose": {
             "gt01": {
@@ -332,7 +334,8 @@
                 "[concat('GADGETRON_RELAY_HOST=',reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress)]"
               ],
               "restart": "always",
-              "links": [                
+              "links": [
+                "reg01"
               ]
             },
             "reg01": {
