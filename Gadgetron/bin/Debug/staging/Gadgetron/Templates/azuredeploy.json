@@ -74,9 +74,7 @@
       }
     }
   },
-  "variables": {
-    "vmNamePrefix": "[resourceGroup().name]",
-    "storAccountName": "[concat(resourceGroup().name,'sa')]",
+  "variables": {    
     "basesharinguri": "https://raw.githubusercontent.com/ExchMaster/gadgetron/master/Gadgetron/Templates/",
     "masternodetemplateuri": "[concat(variables('basesharinguri'),'grelayhost.json')]",
     "gtronvmsstemplateuri": "[concat(variables('basesharinguri'),'gtronvmss.json')]",
@@ -127,8 +125,7 @@
           "instanceCount": { "value": "[parameters('instanceCount')]" },
           "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
           "resourceLocation": { "value": "[resourceGroup().location]" },
-          "subnetName1": { "value": "[parameters('subnetName')]" },
-          "vmNamePrefix": { "value": "[variables('vmNamePrefix')]" }
+          "subnetName1": { "value": "[parameters('subnetName')]" }          
         }
       }
     },
@@ -151,8 +148,7 @@
           "gtronLBEndpoint": { "value": "[parameters('gtronLBEndpoint')]" },
           "masterIP": { "value": "[reference('grelayhost').outputs.relayhostip.value]" },
           "resourceLocation": { "value": "[resourceGroup().location]" },
-          "subnetName1": { "value": "[parameters('subnetName')]" },
-          "vmNamePrefix": { "value": "[variables('vmNamePrefix')]" }
+          "subnetName1": { "value": "[parameters('subnetName')]" }
         }
       }
     }*/
