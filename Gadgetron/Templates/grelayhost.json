@@ -343,13 +343,12 @@
                 "[concat('GADGETRON_RELAY_HOST=',reference(concat(variables('nicNamePrefix'),0)).ipConfigurations[0].properties.privateIPAddress)]"
               ],
               "restart": "always",
-              "links": [
-                "reg01"
+              "links": [                
               ]
             },
             "reg01": {
-              "image": "registry:2 /var/lib/registry/config.yml",
-              "command": "< /var/lib/registry/config.yml",
+              "image": "registry:2",
+              "command": "/var/lib/registry/config.yml",
               "restart": "always",
               "ports": [
                 "5000:5000"
