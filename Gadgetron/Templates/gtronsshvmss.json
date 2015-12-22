@@ -30,14 +30,7 @@
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values are: 15.04, 14.04.2-LTS."
       }
-    },
-    "vmNamePrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "String used as a base for naming resources (9 characters or less). A hash is prepended to this string for some resources, and resource-specific information is appended."
-      },
-      "maxLength": 9
-    },
+    },    
     "instanceCount": {
       "type": "int",
       "defaultValue": 3,
@@ -66,10 +59,11 @@
     }
   },
   "variables": {
+    "vmNamePrefix": "[resourceGroup().name]",
     "apiVersion": "2015-06-15",
     "storageAccountType": "Standard_LRS",
     "saCount": 3,
-    "namingInfix": "[concat(toLower(parameters('vmNamePrefix')),'ssh')]",
+    "namingInfix": "[concat(toLower(variables('vmNamePrefix')),'ssh')]",
     "newStorageAccountSuffix": "sa",
     "uniqueStringArray": [
       "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
@@ -80,7 +74,7 @@
     "osDiskName": "[concat(variables('namingInfix'), 'osdisk')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetPrefix": "10.0.0.0/24",
-    "virtualNetworkName": "[concat(parameters('vmNamePrefix'), 'myVMVnet')]",
+    "virtualNetworkName": "[concat(variables('vmNamePrefix'), 'myVMVnet')]",
     "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
     "subnetName": "[parameters('subnetName1')]",
     "loadBalancerName": "[concat(variables('namingInfix'), 'lbssh')]",
