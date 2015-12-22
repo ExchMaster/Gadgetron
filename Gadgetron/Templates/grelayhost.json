@@ -348,7 +348,7 @@
             },
             "reg01": {
               "image": "registry:2",
-              "command": "/var/lib/registry/config.yml",
+              //"command": "/var/lib/registry/config.yml",
               "restart": "always",
               "ports": [
                 "5000:5000"
