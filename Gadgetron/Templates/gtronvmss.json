@@ -75,7 +75,7 @@
     "osDiskName": "[concat(variables('namingInfix'), 'osdisk')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetPrefix": "10.0.0.0/24",
-    "virtualNetworkName": "[concat(variables('vmNamePrefix'), 'myVMVnet')]",
+    "virtualNetworkName": "[concat(variables('vmNamePrefix'), 'Vnet')]",
     "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
     "subnetName": "[parameters('subnetName1')]",
     "loadBalancerName": "[concat(variables('namingInfix'), 'lbvmss')]",

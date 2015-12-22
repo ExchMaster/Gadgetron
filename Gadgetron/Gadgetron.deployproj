@@ -38,6 +38,7 @@
     <None Include="Templates\grelayhost.json" />
     <None Include="Templates\gtronsshvmss.json" />
     <None Include="Templates\gtronvmss.json" />
+    <None Include="Templates\ReadMe.md" />
     <None Include="Templates\vmss-scale.json" />
   </ItemGroup>
   <ItemGroup>
