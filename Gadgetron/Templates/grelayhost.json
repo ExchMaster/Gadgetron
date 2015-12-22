@@ -45,17 +45,7 @@
       "metadata": {
         "description": "SSH Key Value #3 for use when logging in with the user defined in the adminUsername parameter"
       }
-    },
-    "storAccountName": {
-      "type": "string"
-    },
-    "vmNamePrefix": {
-      "type": "string",
-      "defaultValue": "gtrona",
-      "metadata": {
-        "description": "Prefix for all VM's created as part of this deployment.  myVM1, myVM2"
-      }
-    },
+    },    
     "addressPrefix": {
       "type": "string",
       "defaultValue": "10.0.246.0/23"
@@ -73,19 +63,21 @@
     }
   },
   "variables": {
+    "vmNamePrefix": "[resourceGroup().name]",
+    "storAccountName": "[concat(resourceGroup().name,'sa')]",
     "numberOfInstances": 1,
-    "dnsNameforLBIP": "[parameters('vmNamePrefix')]",
-    "publicIPAddressName": "[concat(parameters('vmNamePrefix'),'grhPubIP')]",
-    "nicNamePrefix": "[concat(parameters('vmNamePrefix'),'grhnic')]",
-    "vnetName": "[concat(parameters('vmNamePrefix'),'Vnet')]",
-    "lbName": "[concat(parameters('vmNamePrefix'),'LB')]",
+    "dnsNameforLBIP": "[variables('vmNamePrefix')]",
+    "publicIPAddressName": "[concat(variables('vmNamePrefix'),'grhPubIP')]",
+    "nicNamePrefix": "[concat(variables('vmNamePrefix'),'grhnic')]",
+    "vnetName": "[concat(variables('vmNamePrefix'),'Vnet')]",
+    "lbName": "[concat(variables('vmNamePrefix'),'LB')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "imageSKU": "14.04.2-LTS",
     "vmSize": "Standard_D14_V2",
     "storageAccountType": "Standard_LRS",
     "vmStorageAccountContainerName": "vhds",
-    "availabilitySetName": "[concat(parameters('vmNamePrefix'),'AvSet')]",
+    "availabilitySetName": "[concat(variables('vmNamePrefix'),'AvSet')]",
     "publicIPAddressType": "Static",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
@@ -97,7 +89,7 @@
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('storAccountName')]",
+      "name": "[variables('storAccountName')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[resourceGroup().location]",
       "properties": {
@@ -226,14 +218,14 @@
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
+      "name": "[concat(variables('vmNamePrefix'), copyindex())]",
       "copy": {
         "name": "virtualMachineLoop",
         "count": "[variables('numberOfInstances')]"
       },
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('storAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('storAccountName'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicNamePrefix'), copyindex())]",
         "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
       ],
@@ -245,7 +237,7 @@
           "vmSize": "[variables('vmSize')]"
         },
         "osProfile": {
-          "computerName": "[concat(parameters('vmNamePrefix'), copyIndex())]",
+          "computerName": "[concat(variables('vmNamePrefix'), copyIndex())]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
           "linuxConfiguration": {
@@ -290,7 +282,7 @@
           "osDisk": {
             "name": "osdisk",
             "vhd": {
-              "uri": "[concat('http://',parameters('storAccountName'),'.blob.core.windows.net/vhds/',parameters('vmNamePrefix'), copyindex(), '.vhd')]"
+              "uri": "[concat('http://',variables('storAccountName'),'.blob.core.windows.net/vhds/',variables('vmNamePrefix'), copyindex(), '.vhd')]"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
@@ -307,7 +299,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('vmNamePrefix'), copyIndex(), '/DockerExtension')]",
+      "name": "[concat(variables('vmNamePrefix'), copyIndex(), '/DockerExtension')]",
       "apiVersion": "2015-06-15",
       "location": "[resourceGroup().location]",
       "copy": {
@@ -315,7 +307,7 @@
         "count": "[variables('numberOfInstances')]"
       },
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmNamePrefix'),0)]"
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmNamePrefix'),0)]"
       ],
       "properties": {
         "publisher": "Microsoft.Azure.Extensions",
