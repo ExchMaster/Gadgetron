@@ -48,7 +48,7 @@
       }
     },    
     "instanceCount": {
-      "defaultValue": 2,
+      "defaultValue": 1,
       "type": "int"
     },    
     "addressPrefix": {
