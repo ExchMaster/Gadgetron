@@ -14,7 +14,7 @@
     },
     "vmSku": {
       "type": "string",
-      "defaultValue": "Standard_D14_v2",
+      "defaultValue": "Standard_D11_v2",
       "metadata": {
         "description": "Size of VMs in the VM Scale Set."
       }
@@ -312,9 +312,9 @@
                         {
                             "name": "Profile1",
                             "capacity": {
-                                "minimum": "1",
+                                "minimum": "5",
                                 "maximum": "30",
-                                "default": "1"
+                                "default": "5"
                             },
                             "rules": [
                                 {

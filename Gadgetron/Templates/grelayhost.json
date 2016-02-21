@@ -74,7 +74,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "imageSKU": "14.04.2-LTS",
-    "vmSize": "Standard_D14_V2",
+    "vmSize": "Standard_D11_V2",
     "storageAccountType": "Standard_LRS",
     "vmStorageAccountContainerName": "vhds",
     "availabilitySetName": "[concat(variables('vmNamePrefix'),'AvSet')]",
@@ -258,19 +258,7 @@
                 }
               ]
             }
-          },
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[concat('/subscriptions/',subscription().subscriptionID,'/resourceGroups/AzKeyVaultGtron/providers/Microsoft.KeyVault/vaults/gtron')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateUrl": "https://gtron.vault.azure.net:443/secrets/gtronsshcert/ea0d485656f748bf84d5341651807fa3"
-                }
-              ]
-            }
-          ]
+          }
         },
         "storageProfile": {
           "imageReference": {
