@@ -271,7 +271,7 @@
                     },
           "compose": {
             "gt01": {
-              "image": "hansenms/gadgetron_no_cuda",
+              "image": "gadgetron/ubuntu_1404_no_cuda",
               "ports": [
                 "9002:9002",
                 "8090:8090",
